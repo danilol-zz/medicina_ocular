@@ -1,3 +1,21 @@
+/* ********************************************************************
+ * *  1 - HTML - Reset¬
+ * *  ********************************************************************/
+
+html, body {
+  height: 100%;
+  padding:0;
+  margin: 0;
+}
+
+.container { width: 980px }
+
+
 #footer .container {
-  background: url(rodape.png) 
+  background: url(rodape.png);
+  height: 150px;
+}
+
+.picture_large {
+  margin-left: 14px;
 }
