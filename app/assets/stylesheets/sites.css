@@ -8,8 +8,33 @@ html, body {
   margin: 0;
 }
 
-.container { width: 980px }
+/*font-family: 'Share', cursive;*/
 
+.simulador h3 { 
+  color: #962364; 
+}
+.visite h3 { color: #962364; }
+
+.simulador p {
+  font-size: 10px;
+  color: #979797; 
+}
+
+.simulador {
+  text-align: center;
+  float: left;
+}
+
+.vida {
+  float: right;
+}
+
+.vida span {
+  font-size: 14px;
+  color: #979797; 
+}
+
+.container { width: 980px }
 
 #footer .container {
   background: url(rodape.png);
@@ -19,3 +44,4 @@ html, body {
 .picture_large {
   margin-left: 14px;
 }
+
