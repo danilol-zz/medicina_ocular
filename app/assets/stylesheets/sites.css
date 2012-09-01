@@ -2,56 +2,53 @@
  * *  1 - HTML - Reset¬
  * *  ********************************************************************/
 
+@font-face{
+  font-family: 'freefonts';
+  src: url('fontastique.ttf');
+}
+
 html, body {
   height: 100%;
   padding:0;
   margin: 0;
+  font-family:  "freefonts" , Calibri, Arial, Georgia, Verdana, Sans-Serif;
 }
 
-/*font-family: 'Share', cursive;*/
-
+/*** Main content div ***/
 #main {
   padding: 0 170px;
 }
 
-.simulador h3 { 
-  color: #962364; 
-}
-
-.visite h3 { color: #962364; }
-
-.visite {
-  background: #f5f5f7;
-  clear: both;
-}
-
-.simulador p {
-  font-size: 10px;
-  color: #979797; 
-}
-
-.simulador {
-  text-align: center;
-  float: left;
-}
-
-.vida {
-  text-align: center;
-  float: right;
-  width: 285px;
-  padding: 66px;
-}
-
-.vida span {
-  font-size: 22px;
-  color: #979797; 
+.picture_large {
+  margin-left: 14px;
 }
 
 .container { width: 980px }
 
+.subtitle  {
+  font-size: 25px;
+  font-family:  "freefonts" , Calibri, Arial, Georgia, Verdana, Sans-Serif;
+}
+
+.subtitle-large  {
+  font-size: 27px;
+  font-family:  "freefonts" , Calibri, Arial, Georgia, Verdana, Sans-Serif;
+}
+
+.purple {
+  color: #962364; 
+}
+
+.gray {
+  color: #979797; 
+}
+
+
+/*** footer ***/
 #footer {
   background-image: url(rodape.png);
   background-repeat:repeat-x;  
+  background-size: 100%;
   height: 220px;
   display: inline-block;
   clear: both;
@@ -59,7 +56,30 @@ html, body {
   width: 100%;
 }
 
-.picture_large {
-  margin-left: 14px;
+/*** visite home ***/
+.visite {
+  background: #f5f5f7;
+  clear: both;
 }
+
+/*** simulador home ***/
+.simulador {
+  text-align: center;
+  float: left;
+  margin: -75px 0 0 120px;
+  width: 300px;
+}
+
+/*** vida home ***/
+.vida {
+  text-align: center;
+  float: right;
+  width: 550px;
+}
+
+.vida span {
+  font-size: 22px;
+  color: #979797; 
+}
+
 
