@@ -19,8 +19,15 @@ html, body {
   padding: 0 170px;
 }
 
+#content {
+  z-index: 1; 
+
+}
+
 .picture_large {
+  position: relative;
   margin-left: 14px;
+  z-index: 2;
 }
 
 .container { width: 980px }
@@ -43,6 +50,25 @@ html, body {
   color: #979797; 
 }
 
+.right {
+  float: right;
+}
+
+.left {
+  float: left
+}
+/*** menu ***/
+.menu ul {
+  list-style: none;
+}
+
+.menu {
+  color: white; 
+  position: relative;
+  right: 200px;
+  top: 10px;
+  z-index: 3;
+}
 
 /*** footer ***/
 #footer {
@@ -65,7 +91,6 @@ html, body {
 /*** simulador home ***/
 .simulador {
   text-align: center;
-  float: left;
   margin: -75px 0 0 120px;
   width: 300px;
 }
@@ -73,7 +98,6 @@ html, body {
 /*** vida home ***/
 .vida {
   text-align: center;
-  float: right;
   width: 550px;
 }
 
