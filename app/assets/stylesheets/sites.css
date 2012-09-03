@@ -99,6 +99,7 @@ html, body {
 .vida {
   text-align: center;
   width: 550px;
+  margin-top: -120px;
 }
 
 .vida span {
