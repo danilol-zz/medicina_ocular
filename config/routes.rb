@@ -1,7 +1,7 @@
 MedicinaOcular::Application.routes.draw do
-  resources :sites
+  resources :pages
 
-  root :to => 'sites#index', :id => "home"
-  get ":id" => "sites#index", :as => :page
+  root :to => 'pages#index', :id => "home"
+  get ":id" => "pages#index", :as => :page
 
 end
