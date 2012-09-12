@@ -1,4 +1,4 @@
-class SitesController < ApplicationController
+class PagesController < ApplicationController
   def index
     if params[:id] && template_exists?(params[:id], ["page"])
       render params[:id]
