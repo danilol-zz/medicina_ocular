@@ -1,3 +1,3 @@
-class Page < ActiveRecord::Base
+class Page
   # attr_accessible :title, :body
 end
