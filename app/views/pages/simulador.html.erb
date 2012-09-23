@@ -1,48 +1,97 @@
-Simulador
-<div class="picture_large">
-  <%= image_tag "foto_home.png" %>
-</div>
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Medicina Ocular - Truques da visão</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+      <![endif]-->
+    </head>
+    <body id="olhar" class="truques-visao">
 
+      <%= render partial: "layouts/menu" %>
 
-Simulador
-Todos temos dificuldades de conseguir detectar algum problema na visão, para lhe ajudar a rapidamente verificar o que pode estar lhe causando, desenvolvemos um dimulador de doenças maculares mais comuns. Caso você verifique que tem um dos sintomas, entre em contato conosco.
-
-Visão Normal
-Uma visão limpa é sempre bem nitida e sem interferências.
-
-
-Catarata
-É a opacificação (diminuição da transparência) do cristalino - a lente natural e transparente localizada atrás da íris - que ajuda a focalizar os raios de luz na retina. É uma doença comumente associada à pessoas com mais de 50 anos porém, crianças também são afetadas através da catarata congênita.
-
-Glaucoma
-
-Doença que causa danos no nervo óptico e alterações no campo visual, que vai se "fechando", podendo levar à cegueira. 
-Na maioria dos casos há um aumento da pressão intra-ocular.
-
-Degeneração Macular
-Ocorrer quando a mácula (um ponto central que fica na retina, responsável pela visão mais detalhada) é afetada. Exceto pela catarata a degeneração da mácula é a causa mais comum de cegueira em pessoas com mais de 50 anos.
-
-Retinopatia Diabética
-A diabetes é uma doença complexa e progressiva que afeta os vazos sanguíneos do olho.
-Um material anormal é depositado nas paredes dos vasos sanguíneos da retina, que é a região conhecida como "fundo do olho", causando estreitamento e as vezes bloqueio do vaso sanguíneo, além de enfraquecimento da sua parede o que ocasiona deformidades conhecidas como micro aneurismas.
-
-Miopia
-A miopia ocorre quando a imagem se forma num ponto anterior a da retina.
-Míopes não enxergam nitidamente à distância.
-
-Astigmatismo 
-No astigmatismo há anormalidades na curvatura da córnea, que ocasionam vários pontos focais sobre a retina, deixando a imagem distorcida.
-
-
-Hipermetropia
-A Hipermetropia ocorre quando a imagem se forma num ponto atrás da retina.
-Os hipermétropes tem dificuldade de enxergar de perto.
-
-Presbiopia 
-Dificuldade de visão ao perto, que é normalmente sentida por volta dos 45 anos.
-Deve-se à perda da elasticidade progressiva do cristalino, fruto do desgaste pela idade.
-
-
-
-<%= link_to "Anterior", page_path('medicina')%>
-<%= link_to "Proxima", page_path('home')%>
+      <section class="conteudo clearfix">
+      <div class="container clearfix">
+        <h1>Truques de olhar</h1>
+        <div class="truques-container clearfix">
+          <ul>
+            <li>
+            <section>
+            <p>Não existem linhas curvas nesta imagem.</p>
+            <img alt="truque-1" title="Truque-1" src="img/truque-visual-1.jpg" />
+            </section>
+            <section>
+            <p>As linhas vermelhas são paralelas?</p>
+            <img alt="truque-2" title="Truque-2" src="img/truque-visual-2.jpg" />
+            </section>
+            </li>
+            <li>
+            <section>
+            <p>Movimente os olhos.</p>
+            <img alt="truque-3" title="Truque-3" src="img/truque-visual-3.jpg" />
+            </section>
+            <section>
+            <p>Fixe os olhos no ponto central e então avance e retroceda sua cabeça.</p>
+            <img alt="truque-4" title="Truque-4" src="img/truque-visual-4.jpg" />
+            </section>
+            </li>
+            <li>
+            <section>
+            <p>É uma espiral?</p>
+            <img alt="truque-5" title="Truque-5" src="img/truque-visual-5.jpg" />
+            </section>
+            <section>
+            <p>Os circulos vermelhos tem o mesmo diâmetro?</p>
+            <img alt="truque-6" title="Truque-6" src="img/truque-visual-6.jpg" />
+            </section>
+            </li>
+            <li>
+            <section>
+            <p>Os triângulos brancos realmente estão desenhados?</p>
+            <img alt="truque-7" title="Truque-7" src="img/truque-visual-7.jpg" />
+            </section>
+            <section>
+            <p>Existem uma esfera no centro da imagem?</p>
+            <img alt="truque-8" title="Truque-8" src="img/truque-visual-8.jpg" />
+            </section>
+            </li>
+            <li class="ultimo">
+            <section>
+            <p>Os quadrados são quadrados?</p>
+            <img alt="truque-9" title="Truque-9" src="img/truque-visual-9.jpg" />
+            </section>
+            <section>
+            <p>É um cubo ou não?</p>
+            <img alt="truque-10" title="Truque-10" src="img/truque-visual-10.jpg" />
+            </section>
+            </li>
+          </ul>
+          <p><cite>Referência: www.buratto.org/otica, www.ilusaodeotica.com</cite></p>
+        </div>
+      </div>
+      </section>
+      <footer>
+      <div class="container">
+        <section class="rodape">
+        <p class="texto-pequeno">Todos os direitos reservados | Medicina Ocular &#174 </p>
+        <div class="social">
+          <a class="twitter ir blank" href="twitter" title="Home">Twitter</a>
+          <a class="facebook ir blank"  href="facebook" title="Home">Facebook</a>
+        </div>
+        </section>
+      </div>
+      </footer>
+      <script src="js/vendor/jquery-1.8.1.min.js" type="text/javascript"></script>
+      <script src="js/extend.js" type="text/javascript"></script>
+      <script src="js/script.js" type="text/javascript"></script>
+    </body>
+  </html>
