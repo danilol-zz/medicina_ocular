@@ -17,7 +17,7 @@
     <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
       <![endif]-->
     </head>
-    <body id="<%= yield :area %>">
+    <body id="<%= yield :area %>" <%= "class='truques-visao'" if params[:id] == 'truques-da-visao' %>">
       <%= render partial: "layouts/menu" %>
 
       <%= yield %>
