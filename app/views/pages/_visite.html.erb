@@ -1,5 +1,32 @@
-<div class="visite">
-  <p class="subtitle purple">Visite-nos</p>
-  <p>Agende sua consulta</p>
-</div>
-
+<section class="visitar">
+  <h2>Visite-nos</h2>
+  <span>Agende sua Visita</span>
+</section>
+<section class="form-container fechado" style="display:none">
+  <form class="agendar" action="enviar" enctype="application/x-www-form-urlencoded" method="post">
+    <fieldset>
+      <ul>
+        <li>
+        <legend>agendar</legend>
+        <label for="nome">Nome</label>
+        <input name="nome" type="text" maxlength="25" />
+        </li>
+        <li>
+        <label for="telefone">Tel.</label>
+        <input class="fone" name="telefone" type="text" />
+        </li>
+        <li>
+        <label for="email">E-mail</label>
+        <input class="email" name="email" type="text" />
+        </li>
+        <li>
+        <label for="data">Data</label>
+        <input name="data" type="text" class="datepicker data" />
+        </li>
+        <li class="ultimo">
+        <button class="ir" name="enviar" type="submit" value="enviar">Enviar</button>
+        </li>
+      </ul>
+    </fieldset>
+  </form>
+</section>
