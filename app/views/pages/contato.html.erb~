@@ -1,6 +1,0 @@
-Contato
-<div class="picture_large">
-  <%= image_tag "foto_home.png" %>
-</div>
-<%= link_to "Anterior", page_path('duvidas')%>
-<%= link_to "Proxima", page_path('historias')%>
