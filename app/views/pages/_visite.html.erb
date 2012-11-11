@@ -3,7 +3,7 @@
   <span>Agende sua Visita</span>
 </section>
 <section class="form-container fechado" style="display:none">
-  <form class="agendar" action="enviar" enctype="application/x-www-form-urlencoded" method="post">
+  <form class="agendar" action="pages/mail" enctype="application/x-www-form-urlencoded" method="post">
     <fieldset>
       <ul>
         <li>
@@ -24,6 +24,7 @@
         <input name="data" type="text" class="datepicker data" />
         </li>
         <li class="ultimo">
+        <input type="hidden" name="id" value="<%= params[:id] %>">
         <button class="ir" name="enviar" type="submit" value="enviar">Enviar</button>
         </li>
       </ul>

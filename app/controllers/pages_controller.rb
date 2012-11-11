@@ -7,4 +7,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def mail
+    PageMailer.send_mail(params).deliver
+    render params[:id] || 'index'
+  end
 end
