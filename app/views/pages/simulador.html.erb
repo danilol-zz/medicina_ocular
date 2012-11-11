@@ -5,66 +5,75 @@
 <section class="conteudo clearfix">
   <div class="container clearfix">
     <h1>Simulador</h1>
-    <article>
-      <p>Todos temos dificuldades de conseguir detectar algum problema na visão, para lhe ajudar a rapidamente verificar o que pode estar lhe causando, desenvolvemos um dimulador de doenças maculares mais comuns. Caso você verifique que tem um dos sintomas, entre em contato conosco.</p>
-    </article>
-    <%= image_tag "simulador.jpg", title: "Simulador", alt: "simulador" %>
-    <section class="simulador-container">
-      <article class="accordion">
-        <h3>Visão Normal<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>Uma visão limpa é sempre bem nitida e sem interferências.</p>
-        </section>
+      <article>
+        <p>Todos temos dificuldades de conseguir detectar algum problema na visão, para lhe ajudar a rapidamente verificar o que pode estar lhe causando, desenvolvemos um dimulador de doenças maculares mais comuns. Caso você verifique que tem um dos sintomas, entre em contato conosco.</p>
       </article>
-      <article class="accordion">
-        <h3>Catarata<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>É a opacificação (diminuição da transparência) do cristalino - a lente natural e transparente localizada atrás da íris - que ajuda a focalizar os raios de luz na retina. É uma doença comumente associada à pessoas com mais de 50 anos porém, crianças também são afetadas através da catarata congênita.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Glaucoma<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>Doença que causa danos no nervo óptico e alterações no campo visual, que vai se "fechando", podendo levar à cegueira. 
-          Na maioria dos casos há um aumento da pressão intra-ocular.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Degeneração Macular<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>Ocorre quando a mácula (um ponto central que fica na retina, responsável pela visão mais detalhada) é afetada. Exceto pela catarata a degeneração da mácula é a causa mais comum de cegueira em pessoas com mais de 50 anos.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Retinopatia Diabética<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>A diabetes é uma doença complexa e progressiva que afeta os vazos sanguíneos do olho. Um material anormal é depositado nas paredes dos vasos sanguíneos da retina, que é a região conhecida como "fundo do olho", causando estreitamento e as vezes bloqueio do vaso sanguíneo, além de enfraquecimento da sua parede o que ocasiona deformidades conhecidas como micro aneurismas.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Miopia<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>A miopia ocorre quando a imagem se forma num ponto anterior a da retina. Míopes não enxergam nitidamente à distância.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Astigmatismo<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>No astigmatismo há anormalidades na curvatura da córnea, que ocasionam vários pontos focais sobre a retina, deixando a imagem distorcida.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Hipermetropia<span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>A Hipermetropia ocorre quando a imagem se forma num ponto atrás da retina. Os hipermétropes tem dificuldade de enxergar de perto.</p>
-        </section>
-      </article>
-      <article class="accordion">
-        <h3>Presbiopia <span class="ir fechado">icone</span></h3>
-        <section style="display:none">
-          <p>Dificuldade de visão ao perto, que é normalmente sentida por volta dos 45 anos. Deve-se à perda da elasticidade progressiva do cristalino, fruto do desgaste pela idade.</p>
-        </section>
-      </article>
-    </section>
-  </div>
-</section>
+      <section class="simulador-container">
+        <article class="accordion">
+          <h3>Visão Normal<span class="ir fechado">icone</span></h3>
+          <section id="1" style="display:none">
+            <p>Uma visão limpa é sempre bem nitida e sem interferências.</p>
+            <%= image_tag "simulador/simulador-1.jpg", id: "1", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Catarata<span class="ir fechado">icone</span></h3>
+          <section id="2" style="display:none">
+            <p>É a opacificação (diminuição da transparência) do cristalino - a lente natural e transparente localizada atrás da íris - que ajuda a focalizar os raios de luz na retina. É uma doença comumente associada à pessoas com mais de 50 anos porém, crianças também são afetadas através da catarata congênita.</p>
+            <%= image_tag "simulador/simulador-2.jpg", id: "2", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Glaucoma<span class="ir fechado">icone</span></h3>
+          <section id="3" style="display:none">
+            <p>Doença que causa danos no nervo óptico e alterações no campo visual, que vai se "fechando", podendo levar à cegueira.
+            Na maioria dos casos há um aumento da pressão intra-ocular.</p>
+            <%= image_tag "simulador/simulador-3.jpg", id: "3", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Degeneração Macular<span class="ir fechado">icone</span></h3>
+          <section id="4" style="display:none">
+            <p>Ocorre quando a mácula (um ponto central que fica na retina, responsável pela visão mais detalhada) é afetada. Exceto pela catarata a degeneração da mácula é a causa mais comum de cegueira em pessoas com mais de 50 anos.</p>
+            <%= image_tag "simulador/simulador-4.jpg", id: "4", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Retinopatia Diabética<span class="ir fechado">icone</span></h3>
+          <section id="5" style="display:none">
+            <p>A diabetes é uma doença complexa e progressiva que afeta os vazos sanguíneos do olho. Um material anormal é depositado nas paredes dos vasos sanguíneos da retina, que é a região conhecida como "fundo do olho", causando estreitamento e as vezes bloqueio do vaso sanguíneo, além de enfraquecimento da sua parede o que ocasiona deformidades conhecidas como micro aneurismas.</p>
+            <%= image_tag "simulador/simulador-5.jpg", id: "5", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Miopia<span class="ir fechado">icone</span></h3>
+          <section id="6" style="display:none">
+            <p>A miopia ocorre quando a imagem se forma num ponto anterior a da retina. Míopes não enxergam nitidamente à distância.</p>
+            <%= image_tag "simulador/simulador-6.jpg", id: "6", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Astigmatismo<span class="ir fechado">icone</span></h3>
+          <section id="7" style="display:none">
+            <p>No astigmatismo há anormalidades na curvatura da córnea, que ocasionam vários pontos focais sobre a retina, deixando a imagem distorcida.</p>
+            <%= image_tag "simulador/simulador-7.jpg", id: "7", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Hipermetropia<span class="ir fechado">icone</span></h3>
+          <section id="8" style="display:none">
+            <p>A Hipermetropia ocorre quando a imagem se forma num ponto atrás da retina. Os hipermétropes tem dificuldade de enxergar de perto.</p>
+            <%= image_tag "simulador/simulador-8.jpg", id: "8", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+        <article class="accordion">
+          <h3>Presbiopia <span class="ir fechado">icone</span></h3>
+          <section id="9" style="display:none">
+            <p>Dificuldade de visão ao perto, que é normalmente sentida por volta dos 45 anos. Deve-se à perda da elasticidade progressiva do cristalino, fruto do desgaste pela idade.</p>
+            <%= image_tag "simulador/simulador-9.jpg", id: "9", title: "Simulador", alt: "simulador" %>
+          </section>
+        </article>
+      </section>
+    </div>
+  </section>
+

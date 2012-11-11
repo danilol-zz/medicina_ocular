@@ -52,6 +52,11 @@ $.fn.extend({
 			outros.find('h3').removeClass('selecionado');
 			outros.find('section').slideUp();
 		}
+		if ( $('body#simulador') ){
+			conteudo.find('img').fadeIn("fast", function () {
+				outros.find('img').fadeOut("fast");});
+			
+		}
 							
 	},
 	konami : function() {
