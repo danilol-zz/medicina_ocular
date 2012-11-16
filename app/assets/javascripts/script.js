@@ -27,7 +27,7 @@
 			if ($.browser.webkit) {
 				$("html").addClass("webkit");
 			}
-			$('.blank').novaReferencia();	
+			$('.blank').novaReferencia();
 		},
 		section : {
 
@@ -72,7 +72,7 @@
 					}
 
 				});
-				
+
 			},
 			doencasOculares : function() {
 				$(".accordion h3").on('click', function (){
@@ -131,8 +131,8 @@
 					}
 
 				});
-				
+
 			}
-		}	
+		}
 	}
 })(jQuery);

@@ -196,7 +196,7 @@ footer {
 		margin: 0 auto;
 		padding: 0 0 20px;
 		text-align: center }
-		.visitar h2 { background: url("sprite.png") no-repeat scroll center -97px transparent; }
+		.visitar h2 { background: url("sprite.png") no-repeat scroll center -97px transparent; text-decoration: none; }
 
 	footer .form-container {
 		display: block;
