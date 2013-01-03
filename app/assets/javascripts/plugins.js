@@ -71,3 +71,236 @@ b,d){return this.bind(b,function(e){var f=c(e.target);if(f.is(a))return d.apply(
 	Version: 1.3
 */
 (function(a){var b=(a.browser.msie?"paste":"input")+".mask",c=window.orientation!=undefined;a.mask={definitions:{9:"[0-9]",a:"[A-Za-z]","*":"[A-Za-z0-9]"},dataName:"rawMaskFn"},a.fn.extend({caret:function(a,b){if(this.length!=0){if(typeof a=="number"){b=typeof b=="number"?b:a;return this.each(function(){if(this.setSelectionRange)this.setSelectionRange(a,b);else if(this.createTextRange){var c=this.createTextRange();c.collapse(!0),c.moveEnd("character",b),c.moveStart("character",a),c.select()}})}if(this[0].setSelectionRange)a=this[0].selectionStart,b=this[0].selectionEnd;else if(document.selection&&document.selection.createRange){var c=document.selection.createRange();a=0-c.duplicate().moveStart("character",-1e5),b=a+c.text.length}return{begin:a,end:b}}},unmask:function(){return this.trigger("unmask")},mask:function(d,e){if(!d&&this.length>0){var f=a(this[0]);return f.data(a.mask.dataName)()}e=a.extend({placeholder:"_",completed:null},e);var g=a.mask.definitions,h=[],i=d.length,j=null,k=d.length;a.each(d.split(""),function(a,b){b=="?"?(k--,i=a):g[b]?(h.push(new RegExp(g[b])),j==null&&(j=h.length-1)):h.push(null)});return this.trigger("unmask").each(function(){function v(a){var b=f.val(),c=-1;for(var d=0,g=0;d<k;d++)if(h[d]){l[d]=e.placeholder;while(g++<b.length){var m=b.charAt(g-1);if(h[d].test(m)){l[d]=m,c=d;break}}if(g>b.length)break}else l[d]==b.charAt(g)&&d!=i&&(g++,c=d);if(!a&&c+1<i)f.val(""),t(0,k);else if(a||c+1>=i)u(),a||f.val(f.val().substring(0,c+1));return i?d:j}function u(){return f.val(l.join("")).val()}function t(a,b){for(var c=a;c<b&&c<k;c++)h[c]&&(l[c]=e.placeholder)}function s(a){var b=a.which,c=f.caret();if(a.ctrlKey||a.altKey||a.metaKey||b<32)return!0;if(b){c.end-c.begin!=0&&(t(c.begin,c.end),p(c.begin,c.end-1));var d=n(c.begin-1);if(d<k){var g=String.fromCharCode(b);if(h[d].test(g)){q(d),l[d]=g,u();var i=n(d);f.caret(i),e.completed&&i>=k&&e.completed.call(f)}}return!1}}function r(a){var b=a.which;if(b==8||b==46||c&&b==127){var d=f.caret(),e=d.begin,g=d.end;g-e==0&&(e=b!=46?o(e):g=n(e-1),g=b==46?n(g):g),t(e,g),p(e,g-1);return!1}if(b==27){f.val(m),f.caret(0,v());return!1}}function q(a){for(var b=a,c=e.placeholder;b<k;b++)if(h[b]){var d=n(b),f=l[b];l[b]=c;if(d<k&&h[d].test(f))c=f;else break}}function p(a,b){if(!(a<0)){for(var c=a,d=n(b);c<k;c++)if(h[c]){if(d<k&&h[c].test(l[d]))l[c]=l[d],l[d]=e.placeholder;else break;d=n(d)}u(),f.caret(Math.max(j,a))}}function o(a){while(--a>=0&&!h[a]);return a}function n(a){while(++a<=k&&!h[a]);return a}var f=a(this),l=a.map(d.split(""),function(a,b){if(a!="?")return g[a]?e.placeholder:a}),m=f.val();f.data(a.mask.dataName,function(){return a.map(l,function(a,b){return h[b]&&a!=e.placeholder?a:null}).join("")}),f.attr("readonly")||f.one("unmask",function(){f.unbind(".mask").removeData(a.mask.dataName)}).bind("focus.mask",function(){m=f.val();var b=v();u();var c=function(){b==d.length?f.caret(0,b):f.caret(b)};(a.browser.msie?c:function(){setTimeout(c,0)})()}).bind("blur.mask",function(){v(),f.val()!=m&&f.change()}).bind("keydown.mask",r).bind("keypress.mask",s).bind(b,function(){setTimeout(function(){f.caret(v(!0))},0)}),v()})}})})(jQuery)
+
+/*!
+ * jQuery Cycle Lite Plugin
+ * http://malsup.com/jquery/cycle/lite/
+ * Copyright (c) 2008-2012 M. Alsup
+ * Version: 1.6 (02-MAY-2012)
+ * Dual licensed under the MIT and GPL licenses:
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.gnu.org/licenses/gpl.html
+ * Requires: jQuery v1.3.2 or later
+ */
+;(function($) {
+"use strict";
+
+var ver = 'Lite-1.6';
+
+$.fn.cycle = function(options) {
+    return this.each(function() {
+        options = options || {};
+        
+        if (this.cycleTimeout) clearTimeout(this.cycleTimeout);
+
+        this.cycleTimeout = 0;
+        this.cyclePause = 0;
+        
+        var $cont = $(this);
+        var $slides = options.slideExpr ? $(options.slideExpr, this) : $cont.children();
+        var els = $slides.get();
+        if (els.length < 2) {
+            if (window.console)
+                console.log('terminating; too few slides: ' + els.length);
+            return; // don't bother
+        }
+
+        // support metadata plugin (v1.0 and v2.0)
+        var opts = $.extend({}, $.fn.cycle.defaults, options || {}, $.metadata ? $cont.metadata() : $.meta ? $cont.data() : {});
+        var meta = $.isFunction($cont.data) ? $cont.data(opts.metaAttr) : null;
+        if (meta)
+            opts = $.extend(opts, meta);
+            
+        opts.before = opts.before ? [opts.before] : [];
+        opts.after = opts.after ? [opts.after] : [];
+        opts.after.unshift(function(){ opts.busy=0; });
+            
+        // allow shorthand overrides of width, height and timeout
+        var cls = this.className;
+        opts.width = parseInt((cls.match(/w:(\d+)/)||[])[1], 10) || opts.width;
+        opts.height = parseInt((cls.match(/h:(\d+)/)||[])[1], 10) || opts.height;
+        opts.timeout = parseInt((cls.match(/t:(\d+)/)||[])[1], 10) || opts.timeout;
+
+        if ($cont.css('position') == 'static') 
+            $cont.css('position', 'relative');
+        if (opts.width) 
+            $cont.width(opts.width);
+        if (opts.height && opts.height != 'auto') 
+            $cont.height(opts.height);
+
+        var first = 0;
+        $slides.css({position: 'absolute', top:0}).each(function(i) {
+            $(this).css('z-index', els.length-i);
+        });
+        
+        $(els[first]).css('opacity',1).show(); // opacity bit needed to handle reinit case
+        if ($.browser.msie) els[first].style.removeAttribute('filter');
+
+        if (opts.fit && opts.width) 
+            $slides.width(opts.width);
+        if (opts.fit && opts.height && opts.height != 'auto') 
+            $slides.height(opts.height);
+        if (opts.pause) 
+            $cont.hover(function(){this.cyclePause=1;}, function(){this.cyclePause=0;});
+
+        var txFn = $.fn.cycle.transitions[opts.fx];
+        if (txFn)
+            txFn($cont, $slides, opts);
+        
+        $slides.each(function() {
+            var $el = $(this);
+            this.cycleH = (opts.fit && opts.height) ? opts.height : $el.height();
+            this.cycleW = (opts.fit && opts.width) ? opts.width : $el.width();
+        });
+
+        if (opts.cssFirst)
+            $($slides[first]).css(opts.cssFirst);
+
+        if (opts.timeout) {
+            // ensure that timeout and speed settings are sane
+            if (opts.speed.constructor == String)
+                opts.speed = {slow: 600, fast: 200}[opts.speed] || 400;
+            if (!opts.sync)
+                opts.speed = opts.speed / 2;
+            while((opts.timeout - opts.speed) < 250)
+                opts.timeout += opts.speed;
+        }
+        opts.speedIn = opts.speed;
+        opts.speedOut = opts.speed;
+
+        opts.slideCount = els.length;
+        opts.currSlide = first;
+        opts.nextSlide = 1;
+
+        // fire artificial events
+        var e0 = $slides[first];
+        if (opts.before.length)
+            opts.before[0].apply(e0, [e0, e0, opts, true]);
+        if (opts.after.length > 1)
+            opts.after[1].apply(e0, [e0, e0, opts, true]);
+        
+        if (opts.click && !opts.next)
+            opts.next = opts.click;
+        if (opts.next)
+            $(opts.next).unbind('click.cycle').bind('click.cycle', function(){return advance(els,opts,opts.rev?-1:1);});
+        if (opts.prev)
+            $(opts.prev).unbind('click.cycle').bind('click.cycle', function(){return advance(els,opts,opts.rev?1:-1);});
+
+        if (opts.timeout)
+            this.cycleTimeout = setTimeout(function() {
+                go(els,opts,0,!opts.rev);
+            }, opts.timeout + (opts.delay||0));
+    });
+};
+
+function go(els, opts, manual, fwd) {
+    if (opts.busy) 
+        return;
+    var p = els[0].parentNode, curr = els[opts.currSlide], next = els[opts.nextSlide];
+    if (p.cycleTimeout === 0 && !manual) 
+        return;
+
+    if (manual || !p.cyclePause) {
+        if (opts.before.length)
+            $.each(opts.before, function(i,o) { o.apply(next, [curr, next, opts, fwd]); });
+        var after = function() {
+            if ($.browser.msie)
+                this.style.removeAttribute('filter');
+            $.each(opts.after, function(i,o) { o.apply(next, [curr, next, opts, fwd]); });
+            queueNext(opts);
+        };
+
+        if (opts.nextSlide != opts.currSlide) {
+            opts.busy = 1;
+            $.fn.cycle.custom(curr, next, opts, after);
+        }
+        var roll = (opts.nextSlide + 1) == els.length;
+        opts.nextSlide = roll ? 0 : opts.nextSlide+1;
+        opts.currSlide = roll ? els.length-1 : opts.nextSlide-1;
+    } else {
+      queueNext(opts);
+    }
+
+    function queueNext(opts) {
+        if (opts.timeout)
+            p.cycleTimeout = setTimeout(function() { go(els,opts,0,!opts.rev); }, opts.timeout);
+    }
+}
+
+// advance slide forward or back
+function advance(els, opts, val) {
+    var p = els[0].parentNode, timeout = p.cycleTimeout;
+    if (timeout) {
+        clearTimeout(timeout);
+        p.cycleTimeout = 0;
+    }
+    opts.nextSlide = opts.currSlide + val;
+    if (opts.nextSlide < 0) {
+        opts.nextSlide = els.length - 1;
+    }
+    else if (opts.nextSlide >= els.length) {
+        opts.nextSlide = 0;
+    }
+    go(els, opts, 1, val>=0);
+    return false;
+}
+
+$.fn.cycle.custom = function(curr, next, opts, cb) {
+    var $l = $(curr), $n = $(next);
+    $n.css(opts.cssBefore);
+    var fn = function() {$n.animate(opts.animIn, opts.speedIn, opts.easeIn, cb);};
+    $l.animate(opts.animOut, opts.speedOut, opts.easeOut, function() {
+        $l.css(opts.cssAfter);
+        if (!opts.sync)
+            fn();
+    });
+    if (opts.sync)
+        fn();
+};
+
+$.fn.cycle.transitions = {
+    fade: function($cont, $slides, opts) {
+        $slides.not(':eq(0)').hide();
+        opts.cssBefore = { opacity: 0, display: 'block' };
+        opts.cssAfter  = { display: 'none' };
+        opts.animOut = { opacity: 0 };
+        opts.animIn = { opacity: 1 };
+    },
+    fadeout: function($cont, $slides, opts) {
+        opts.before.push(function(curr,next,opts,fwd) {
+            $(curr).css('zIndex',opts.slideCount + (fwd === true ? 1 : 0));
+            $(next).css('zIndex',opts.slideCount + (fwd === true ? 0 : 1));
+        });
+        $slides.not(':eq(0)').hide();
+        opts.cssBefore = { opacity: 1, display: 'block', zIndex: 1 };
+        opts.cssAfter  = { display: 'none', zIndex: 0 };
+        opts.animOut = { opacity: 0 };
+        opts.animIn = { opacity: 1 };
+    }
+};
+
+$.fn.cycle.ver = function() { return ver; };
+
+// @see: http://malsup.com/jquery/cycle/lite/
+$.fn.cycle.defaults = {
+    animIn:        {},
+    animOut:       {},
+    fx:           'fade',
+    after:         null,
+    before:        null,
+    cssBefore:     {},
+    cssAfter:      {},
+    delay:         0,
+    fit:           0,
+    height:       'auto',
+    metaAttr:     'cycle',
+    next:          null,
+    pause:         false,
+    prev:          null,
+    speed:         1000,
+    slideExpr:     null,
+    sync:          true,
+    timeout:       4000
+};
+
+})(jQuery);

@@ -16,6 +16,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'nokogiri'
 
 gem 'debugger'
 # To use ActiveModel has_secure_password

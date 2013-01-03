@@ -5,13 +5,11 @@
 <section class="conteudo clearfix">
   <div class="container clearfix">
     <h1>Histórias</h1>
-    <article>
-      <h2>titulo da história</h2>
-      <p>Nulla placerat vestibulum ante, ut accumsan erat sollicitudin at. In id dictum mauris. Nunc a tortor neque, a feugiat nisl. Sed vitae massa sapien, eu dignissim lacus. Morbi commodo lobortis nunc nec mollis. Curabitur id ligula orci, non dignissim tellus. Nulla ac magna tortor, a semper sapien.</p>
-    </article>
-    <article>
-      <h2>titulo da história</h2>
-      <p>Nulla placerat vestibulum ante, ut accumsan erat sollicitudin at. In id dictum mauris. Nunc a tortor neque, a feugiat nisl. Sed vitae massa sapien, eu dignissim lacus. Morbi commodo lobortis nunc nec mollis. Curabitur id ligula orci, non dignissim tellus. Nulla ac magna tortor, a semper sapien.</p>
-    </article>
+    <% feed_textos.map do |texto| %>
+      <article>
+        <h2 class="img-larga"><%= raw texto.at_xpath("title").text %></h2>
+        <p><%= raw texto.at_xpath("content:encoded").text %></p>
+      </article>
+    <% end %>
   </div>
 </section>

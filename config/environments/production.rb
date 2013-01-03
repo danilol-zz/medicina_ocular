@@ -69,7 +69,7 @@ MedicinaOcular::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :user_name            => 'danilo.moura.lima@gmail.com ',
-    :password             => 'c54hj91C',
+    :password             => '',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }

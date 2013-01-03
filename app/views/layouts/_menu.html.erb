@@ -1,6 +1,6 @@
 <header>
   <div class="container">
-    <a href="index" title="Medicina Ocular">
+    <a href="index" class="logo" title="Medicina Ocular">
       <%= image_tag "medicina-ocular-logo.png", title: "Medicina Ocular", width: 261, height:"93" %>
     </a>
     <nav>
@@ -14,5 +14,13 @@
         <li class="contato"><a href="contato" title="Contato">Contato</a></li>
       </ul>
     </nav>
+      <p class="cuidados ir">Cuidados Oftalmológicos<a  href="cuidados.html" title="Cuidados">Veja mais</a></p>
+    <% if params[:id] == 'index' %>
+      <div id="fade">
+        <%= image_tag "bg-home.jpg", alt: "teste", title: "Medicina Ocular 1", width: 1024, height:"501" %>
+        <%= image_tag "bg-olhar.jpg", alt: "teste", title: "Medicina Ocular 2", width: 1024, height:"501" %>
+        <%= image_tag "bg-simulador.jpg", alt: "teste", title: "Medicina Ocular 3", width: 1024, height:"501" %>
+      </div>
+    <% end %>
   </div>
 </header>

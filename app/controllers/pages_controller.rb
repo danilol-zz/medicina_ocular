@@ -9,6 +9,6 @@ class PagesController < ApplicationController
 
   def mail
     PageMailer.send_mail(params).deliver
-    render params[:id] || 'index'
+    redirect_to "/#{params[:id]}" || '/index'
   end
 end

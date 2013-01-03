@@ -39,6 +39,7 @@
 				$( ".datepicker" ).datepicker();
 				$(".fone").mask("(99) 99999-9999");
 				$(".data").mask("99/99/9999");
+				$('#fade').cycle();
 				$('.agendar').validate({
 					rules:{
 						nome:{
@@ -78,6 +79,8 @@
 				$(".accordion h3").on('click', function (){
 					$(this).accordeon();
 				});
+			},
+			cuidados : function() {
 			},
 			duvidasFrequentes : function() {
 				$(".accordion h3").on('click', function (){

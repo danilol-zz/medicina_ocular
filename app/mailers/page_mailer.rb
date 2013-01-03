@@ -1,10 +1,10 @@
 class PageMailer < ActionMailer::Base
-    default :from => "seuemail@gmail.com"
+    default :to => "seuemail@gmail.com"
 
     def send_mail(user)
       @site = "http://www.medicinaocular.com.br"
-      mail(:to => user[:email],
-           :body => "#{user[:telefone]}, #{user[:data]}",
+      mail(:from => user[:email],
+           :body => "Nome: #{user[:nome]} Tel: #{user[:telefone]}, Data: #{user[:data]}\n #{user[:message]}",
            :subject => "Contato Medicina Ocular")
     end
 
