@@ -11,7 +11,7 @@ module ApplicationHelper
 
   def feed_textos
     doc = Nokogiri::XML(open("http://razoesparaacreditar.com/feed/"))
-    textos = doc.xpath('//channel/item')[4..4]
+    textos = doc.xpath('//channel/item')[0..4]
   end
 
 end
